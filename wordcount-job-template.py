@@ -45,7 +45,7 @@ default_dag_args = {
 }
 
 with models.DAG(
-        'composer_macys_sample',
+        'composer_macys_sample_DAG_ID',
         # Continue to run DAG once per day
         schedule_interval=datetime.timedelta(days=1),
         default_args=default_dag_args) as dag:
