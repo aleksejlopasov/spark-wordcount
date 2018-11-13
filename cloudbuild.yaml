@@ -4,7 +4,7 @@ steps:
          '-Dmaven.test.skip=true',
          '-Drelease.tagName=$TAG_NAME',
          '-Drelease.shortSha=$SHORT_SHA',
-         '-Drelease.repoName=spark-wordcount']
+         '-Drelease.repoName=$REPO_NAME']
 artifacts:
   objects:
     location: 'gs://macys-artifacts-test-1/$REPO_NAME/$REVISION_ID'
