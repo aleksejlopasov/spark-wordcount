@@ -4,20 +4,20 @@ steps:
          '-Dmaven.test.skip=true',
          '-Drelease.tagName=$TAG_NAME',
          '-Drelease.shortSha=$SHORT_SHA',
-         '-Drelease.repoName=$REPO_NAME']
+         '-Drelease.repoName=spark-wordcount']
 - name: 'ubuntu'
   args: ['sed',
          '-i',
-         's@THE_LATEST_JAR@gs://macys-artifacts-test-1/$REPO_NAME/$REPO_NAME-$TAG_NAME-$SHORT_SHA.jar@g',
+         's@THE_LATEST_JAR@gs://macys-artifacts-test-1/$REPO_NAME/spark-wordcount-$TAG_NAME-$SHORT_SHA.jar@g',
          'wordcount-job-template.py']
 - name: 'ubuntu'
   args: ['sed',
          '-i',
-         's@DAG_ID@$SHORT_SHA.jar@g',
+         's@DAG_ID@$SHORT_SHA@g',
          'wordcount-job-template.py']
 - name: 'gcr.io/cloud-builders/gsutil'
   args: ['cp',
-         'target/$REPO_NAME-$TAG_NAME-$SHORT_SHA.jar',
+         'target/spark-wordcount-$TAG_NAME-$SHORT_SHA.jar',
          'gs://macys-artifacts-test-1/$REPO_NAME/']
 - name: 'gcr.io/cloud-builders/gsutil'
   args: ['cp',
