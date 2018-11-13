@@ -17,9 +17,9 @@ steps:
          'wordcount-job-template.py']
 - name: 'gcr.io/cloud-builders/gsutil'
   args: ['cp',
-         'target/spark-wordcount-$TAG_NAME-$SHORT_SHA.jar',
-         'gs://macys-artifacts-test-1/$REPO_NAME']
-- name: 'gcr.io/cloud-builders/gsutil'
-  args: ['cp',
          'wordcount-job-template.py',
          'gs://us-central1-macys-test-env-be33d558-bucket/dags']
+artifacts:
+  objects:
+    location: 'gs://macys-artifacts-test-1/$REPO_NAME'
+    paths: ['target/spark-wordcount-$TAG_NAME-$SHORT_SHA.jar']         
