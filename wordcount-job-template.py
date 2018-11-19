@@ -65,7 +65,8 @@ with models.DAG(
     # master node.
     run_dataproc_spark = dataproc_operator.DataProcSparkOperator(
         task_id='run_dataproc_spark',
-        main_jar=WORDCOUNT_JAR,
+        main_class='org.apache.spark.examples.JavaWordCount',
+        dataproc_spark_jars=WORDCOUNT_JAR,
         cluster_name='macys-cluster-{{ ds_nodash }}',
         arguments=input_file)
 
