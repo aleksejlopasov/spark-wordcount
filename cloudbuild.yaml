@@ -8,7 +8,7 @@ steps:
 - name: 'ubuntu'
   args: ['sed',
          '-i',
-         's@THE_LATEST_JAR@gs://macys-artifacts-test-1/spark-wordcount-$TAG_NAME-$SHORT_SHA.jar@g',
+         's@THE_LATEST_JAR@gs://macys-artifacts-test-1/JavaWordCount,class@g',
          'wordcount-job-template.py']
 - name: 'ubuntu'
   args: ['sed',
@@ -22,4 +22,4 @@ steps:
 artifacts:
   objects:
     location: 'gs://macys-artifacts-test-1'
-    paths: ['target/spark-wordcount-$TAG_NAME-$SHORT_SHA.jar']         
+    paths: ['target/classes/org/apache/spark/examples/JavaWordCount.class']         
