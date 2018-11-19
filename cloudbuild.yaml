@@ -8,7 +8,7 @@ steps:
 - name: 'ubuntu'
   args: ['sed',
          '-i',
-         's@THE_LATEST_JAR@gs://macys-artifacts-test-1/JavaWordCount,class@g',
+         's@THE_LATEST_JAR@gs://macys-artifacts-test-1/JavaWordCount.class@g',
          'wordcount-job-template.py']
 - name: 'ubuntu'
   args: ['sed',
